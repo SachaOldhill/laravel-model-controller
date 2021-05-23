@@ -19,3 +19,6 @@ Route::get('home', 'TestController@home')
 
 Route::get('/elem/{index}', 'TestController@element')
     -> name('elem');
+
+Route::get('/movie/{id}', 'TestController@movie')
+    -> name('movie');

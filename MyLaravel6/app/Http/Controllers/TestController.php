@@ -7,15 +7,18 @@ use App\Movie;
 
 class TestController extends Controller
 {
-  public function element($index) {
-          $data = [
-          ];
-          $elem = $data[$index];
-          return view('pages.element', compact('elem', 'data'));
-      }
-      public function home() {
-        $movies = Movie::all();
-        dd($movies);
-        return view('pages.home');
-      }
+  public function movie($id) {
+    $movie = Movie::findOrFail($id);
+    // dd($movie);
+    return view('pages.movie', compact(
+      'movie'
+    ));
+  }
+  public function home() {
+    $movies = Movie::all();
+    // dd($movies);
+    return view('pages.home', compact(
+      'movies'
+    ));
+  }
 }
